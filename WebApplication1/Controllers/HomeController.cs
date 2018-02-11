@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Drawing;
 
 namespace WebApplication1.Controllers
 {
@@ -14,8 +15,10 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        public ActionResult AjaxActionResult()
+        [HttpPost]
+        public ActionResult AjaxActionResult(string a)
         {
+           // Bitmap bmp = new Bitmap()
             return Json("cs");
         }
 
