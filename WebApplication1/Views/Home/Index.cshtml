@@ -10,11 +10,16 @@
         <meta name="viewport" content="width=device-width" />        
         <title>Index</title>
     </head>
-    <body onload="init()">
-        <canvas id="can" width="200" height="200"  style="border: 1px solid black;"></canvas>
+<body onload="init()">
+    <div id="canvas">
+        <canvas id="can" width="200" height="200" style="border: 1px solid black;"></canvas>
         <input type="button" value="save" id="btn" size="30" onclick="save()">
         <input type="button" value="clear" id="clr" size="23" onclick="erase()">
-    </body>
+    </div>
+    <div id="results">
+
+    </div>
+</body>
 </html>
 
 <script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>

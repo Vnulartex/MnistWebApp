@@ -4,11 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Drawing;
+using NeuralNet;
 
 namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
+        private const int arrSize = 28;
         // GET: Home
         public ActionResult Index()
         {
@@ -16,10 +18,11 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public ActionResult AjaxActionResult(string a)
+        public ActionResult AjaxActionResult(string imageString)
         {
-           // Bitmap bmp = new Bitmap()
-            return Json("cs");
+            double[][] canvasDoubles = ((Bitmap)Functions.CreateBitmap(imageString)).Resize(28, 28).Enumerate(arrSize);
+            ViewBag.Input = canvasDoubles;
+            return PartialView();
         }
 
     }
