@@ -20,7 +20,8 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult AjaxActionResult(string imageString)
         {
-            double[][] canvasDoubles = ((Bitmap)Functions.CreateBitmap(imageString)).Resize(28, 28).Enumerate(arrSize);
+            Bitmap resized = ((Bitmap)Functions.CreateBitmap(imageString)).Resize(arrSize, arrSize);
+            double[][] canvasDoubles = resized.Enumerate(arrSize);
             ViewBag.Input = canvasDoubles;
             return PartialView();
         }

@@ -6,15 +6,16 @@
         dot_flag = false;
 
     var x = "black",
-        y = 20;
+        y;
     
-    function init(y) {
-        this.y = y;
-        canvas = document.getElementById('can');
+    function init() {
+        canvas = document.getElementById("can");
+        y = canvas.style.width/10;
         ctx = canvas.getContext("2d");
+        ctx.fillStyle = "white";
         w = canvas.width;
-        h = canvas.height;
-    
+        h = canvas.height;   
+        ctx.fillRect(0, 0, w, h);
         canvas.addEventListener("mousemove", function (e) {
             findxy('move', e)
         }, false);
@@ -43,8 +44,8 @@
     function erase() {
         var m = confirm("Want to clear");
         if (m) {
-            ctx.clearRect(0, 0, w, h);
-            document.getElementById("canvasimg").style.display = "none";
+            ctx.fillStyle = "white";
+            ctx.fillRect(0, 0, w, h);
         }
     }
     

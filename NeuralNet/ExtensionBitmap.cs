@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.Linq;
+using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +14,18 @@ namespace NeuralNet
     {
         public static Bitmap Resize(this Bitmap origBitmap,int width, int height)
         {
-            return new Bitmap(origBitmap,width,height);
+            Bitmap newBitmap = new Bitmap(width, height);
+            ImageAttributes imageAttributes=new ImageAttributes();
+            imageAttributes.SetWrapMode(WrapMode.TileFlipXY);
+            using (Graphics gr = Graphics.FromImage(newBitmap))
+            {
+                gr.SmoothingMode = SmoothingMode.HighQuality;
+                gr.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                gr.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                gr.CompositingQuality = CompositingQuality.HighQuality;
+                gr.DrawImage(origBitmap, new Rectangle(0,0,newBitmap.Width,newBitmap.Height),0,0,origBitmap.Width,origBitmap.Height,GraphicsUnit.Pixel,imageAttributes);
+            }
+            return newBitmap; 
         }
 
         public static double[][] Enumerate(this Bitmap imageBitmap, int arraySize)
@@ -31,7 +45,7 @@ namespace NeuralNet
         public static double IsBlack(this Bitmap bmp,int x,int y)
         {
             Color pixel = bmp.GetPixel(x, y);
-            return 1-(pixel.R + pixel.G + pixel.B)/(255*3);
+            return 1-(float)pixel.R/255;
         }
     }
 }
