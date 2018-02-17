@@ -23,6 +23,7 @@ namespace WebApplication1.Controllers
             Bitmap resized = ((Bitmap)Functions.CreateBitmap(imageString)).Resize(arrSize, arrSize);
             double[][] canvasDoubles = resized.Enumerate(arrSize);
             ViewBag.Input = canvasDoubles;
+            Net net= Net.Init(@"C:\Users\jiriv\source\repos\MnistWebApp\JsonTest\ver1.json");
             return PartialView();
         }
 

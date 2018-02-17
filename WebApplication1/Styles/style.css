@@ -1,0 +1,14 @@
+﻿
+.pixel {
+    width: 15px;
+    height: 15px;
+    background-color: black;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+#results {
+    font-size: 0;
+    display: inline-block;
+    border: 1px solid black;
+}

@@ -10,11 +10,11 @@
     
     function init() {
         canvas = document.getElementById("can");
-        y = canvas.style.width/10;
-        ctx = canvas.getContext("2d");
-        ctx.fillStyle = "white";
+        y = canvas.height/10;
         w = canvas.width;
         h = canvas.height;   
+        ctx = canvas.getContext("2d");
+        ctx.fillStyle = "white";
         ctx.fillRect(0, 0, w, h);
         canvas.addEventListener("mousemove", function (e) {
             findxy('move', e)
