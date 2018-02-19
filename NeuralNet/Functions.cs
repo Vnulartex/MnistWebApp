@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.IO;
 
+
 namespace NeuralNet
 {
    public static  class Functions
@@ -37,7 +38,7 @@ namespace NeuralNet
             int x = 0;
             int y = 0;
             if (increment == -1)
-            {
+            { 
                 x = origBmp.Width;
                 y = origBmp.Height;
             }

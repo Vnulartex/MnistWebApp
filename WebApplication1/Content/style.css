@@ -7,7 +7,7 @@
     margin: 0;
     padding: 0;
 }
-#results {
+#pixels {
     font-size: 0;
     display: inline-block;
     border: 1px solid black;

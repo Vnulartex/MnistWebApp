@@ -1,30 +1,42 @@
 ﻿@using System.Globalization
 @{
     double[][] input = ViewBag.Input;
+    double[] result = ViewBag.Result;
     int size = 15;
 }
-
-@for (int i = 0; i < 28; i++)
-{
-    for (int j = 0; j < 28; j++)
-    {
-        <div class="pixel" style="opacity: @input[i][j].ToString(CultureInfo.InvariantCulture)"></div> 
-    }
-    <br>
-}
-@*<table>
-        @for (int i = 0; i < Model.Length; i++)
-        {
-            <tr>
+<table id="res" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            @for (int i = 0; i < result.Length; i++)
+            {
                 <th>
                     @i
                 </th>
-            </tr>
-            <tr>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @foreach (var t in result)
+            {
                 <td>
-                    @Model[i];
+                    @t.ToString("P2")
                 </td>
-            </tr>
+            }
+        </tr>
+    </tbody>
+
+</table>
+
+<div id="pixels">
+    @for (int i = 0; i < 28; i++)
+    {
+        for (int j = 0; j < 28; j++)
+        {
+            <div class="pixel" style="opacity: @input[i][j].ToString(CultureInfo.InvariantCulture)"></div>
         }
-    </table>*@
+        <br>
+    }
+</div>
+
 

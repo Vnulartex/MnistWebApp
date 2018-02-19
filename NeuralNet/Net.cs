@@ -11,9 +11,9 @@ namespace NeuralNet
 {
     public class Net
     {
-        public int[] Sizes { get; }
-        public double[][][] Weights { get; }
-        public double[][][] Biases { get; }
+        public int[] Sizes { get; set; }
+        public double[][][] Weights { get; set; }
+        public double[][][] Biases { get; set; }
         public double[][] Activations { get; set; }
 
         public static Net Init (string data)
@@ -28,9 +28,9 @@ namespace NeuralNet
             return net;
         }
 
-        public double[][] FeedForward(double[][] a)
+        public double[] FeedForward(double[] a)
         {
-           
+            Activations[0] = a;
             for (int i = 0; i < Weights.Length; i++)
             {
                 for (int j = 0; j < Weights[i].Length; j++)
@@ -38,7 +38,7 @@ namespace NeuralNet
                     Activations[i + 1][j] = Sigmoid(Activations[i].Dot(Weights[i][j]) + Biases[i][j][0]);
                 }
             }
-            return a;
+            return Activations[Activations.Length-1];
         }
 
         private double Sigmoid(double z)

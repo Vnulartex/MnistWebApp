@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using NeuralNet;
 
 namespace WebApplication1
 {
@@ -13,6 +14,7 @@ namespace WebApplication1
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            //Application["net"]= Net.Init(@"C:\Users\jiriv\source\repos\MnistWebApp\JsonTest\ver1.json");
         }
     }
 }
