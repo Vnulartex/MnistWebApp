@@ -16,18 +16,6 @@ namespace NeuralNet
         public double[][][] Biases { get; set; }
         public double[][] Activations { get; set; }
 
-        public static Net Init (string data)
-        {
-            string netData = new StreamReader(data).ReadToEnd();
-            Net net = JsonConvert.DeserializeObject<Net>(netData);
-            net.Activations = new double[net.Sizes.Length][];
-            for (int i = 0; i < net.Activations.Length; i++)
-            {
-                net.Activations[i] = new double[net.Sizes[i]];
-            }
-            return net;
-        }
-
         public double[] FeedForward(double[] a)
         {
             Activations[0] = a;

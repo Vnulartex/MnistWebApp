@@ -56,7 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExtensionBitmap.cs" />
-    <Compile Include="Functions.cs" />
+    <Compile Include="Init.cs" />
     <Compile Include="Net.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
