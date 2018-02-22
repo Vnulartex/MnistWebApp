@@ -13,7 +13,7 @@ namespace WebApplication1.Controllers
     public class HomeController : Controller
     {
         private const int arrSize = 28;
-        Net net = Init.InitNetwork(@"C:\Users\jiriv\source\repos\MnistWebApp\JsonTest\ver1.json");
+        Net net = Init.InitNetwork(@"D:\jiriv\Documents\Visual Studio 2017\Projects\MnistWebApp\JsonTest\ver1.json");
         // GET: Home
         public ActionResult Index()
         {
@@ -23,7 +23,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult AjaxActionResult(string imageString)
         {
-            Bitmap resized = ((Bitmap)Init.InitBitmap(imageString)).Resize(arrSize, arrSize).Normalize();
+            Bitmap resized = ((Bitmap)Init.InitBitmap(imageString)).New(arrSize, arrSize).Normalize();
             double[][] input = resized.ToArray(arrSize);
             double[] result = net.FeedForward(input.Reshape());
             double sum = result.Sum();

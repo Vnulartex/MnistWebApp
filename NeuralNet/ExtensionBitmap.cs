@@ -8,7 +8,7 @@ namespace NeuralNet
 {
     public static class ExtensionBitmap
     {
-        public static Bitmap Resize(this Bitmap origBitmap, int canvasWidth, int canvasHeight, int newX = 0, int newY = 0,
+        public static Bitmap New(this Bitmap origBitmap, int canvasWidth, int canvasHeight, int newX = 0, int newY = 0,
             int sourceX = 0, int sourceY = 0, int sourceWidth = 0, int sourceHeight = 0, int newSourceWidth = 0,
             int newSourceHeight = 0)
         {
@@ -95,18 +95,27 @@ namespace NeuralNet
             throw new Exception();
         }
 
-        public static Bitmap Center(this Bitmap origBmp)
+        public static Point CenterOfMass(this Bitmap bmp)
         {
-
-            //Point leftTop = Loop(origBmp, origBmp.Height, origBmp.Width, 1);
-            //Point rightBottom = Loop(origBmp, 0, 0, -1);
-            //Rectangle rect = new Rectangle(leftTop.X, leftTop.Y, rightBottom.X - leftTop.X, rightBottom.Y - leftTop.Y);
-            //using (Graphics g = Graphics.FromImage(origBmp))
-            //{
-            //    g.Clear(Color.White);
-            //    g.DrawImage();
-            //}
-            return origBmp;
+            double sumX = 0;
+            double sumY = 0;
+            int count = 0;
+            for (int i = 0; i < bmp.Height; i++)
+            {
+                for (int j = 0; j < bmp.Width; j++)
+                {
+                    double val = bmp.GetGrayscale(j, i);
+                    if (val > 0)
+                    {
+                        sumX += j * val;
+                        sumY += i * val;
+                        count++;
+                    }
+                }
+            }
+            int x = (int) sumX / count;
+            int y = (int) sumY / count;
+            return new Point(x,y);
         }
 
         public static Bitmap Normalize(this Bitmap bmp)
@@ -123,8 +132,15 @@ namespace NeuralNet
                 newWidth = (int) (newHeight * factor);
             int newX = (canvasWidth - newWidth) / 2;
             int newY = (canvasHeight - newHeight) / 2;
-            return bmp.Resize(canvasWidth, canvasHeight, newX, newY, bounds.X, bounds.Y, bounds.Width, bounds.Height,
+            bmp = bmp.New(canvasWidth, canvasHeight, newX, newY, bounds.X, bounds.Y, bounds.Width, bounds.Height,
                 newWidth, newHeight); //scalovat v 20x20 ramecku a vložit do středu 28x28 ramecku
+            Point center = bmp.CenterOfMass();
+            int sourceX = newX;
+            int sourceY = newY;
+            newX = center.X - newWidth / 2;
+            newY = center.Y - newHeight / 2;
+            return bmp.New(canvasWidth, canvasHeight, newX, newY, sourceX, sourceY, newWidth, newHeight, newWidth,
+                newHeight);
 
         }
     }
