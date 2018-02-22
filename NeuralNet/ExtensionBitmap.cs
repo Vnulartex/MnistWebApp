@@ -99,7 +99,7 @@ namespace NeuralNet
         {
             double sumX = 0;
             double sumY = 0;
-            int count = 0;
+            double count = 0;
             for (int i = 0; i < bmp.Height; i++)
             {
                 for (int j = 0; j < bmp.Width; j++)
@@ -109,12 +109,12 @@ namespace NeuralNet
                     {
                         sumX += j * val;
                         sumY += i * val;
-                        count++;
+                        count += val;
                     }
                 }
             }
-            int x = (int) sumX / count;
-            int y = (int) sumY / count;
+            int x = (int) (sumX / count);
+            int y = (int) (sumY / count);
             return new Point(x,y);
         }
 
@@ -137,8 +137,8 @@ namespace NeuralNet
             Point center = bmp.CenterOfMass();
             int sourceX = newX;
             int sourceY = newY;
-            newX = center.X - newWidth / 2;
-            newY = center.Y - newHeight / 2;
+            newX = sourceX + (canvasWidth/2 - center.X);
+            newY = sourceY + (canvasHeight/2 - center.Y);
             return bmp.New(canvasWidth, canvasHeight, newX, newY, sourceX, sourceY, newWidth, newHeight, newWidth,
                 newHeight);
 
