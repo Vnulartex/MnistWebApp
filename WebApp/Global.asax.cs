@@ -14,7 +14,6 @@ namespace WebApplication1
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            //Application["net"]= Net.Init(@"C:\Users\jiriv\source\repos\MnistWebApp\JsonTest\ver1.json");
         }
     }
 }

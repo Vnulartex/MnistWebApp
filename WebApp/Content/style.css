@@ -12,3 +12,7 @@
     display: inline-block;
     border: 1px solid black;
 }
+
+body {
+    padding-top: 65px;
+}

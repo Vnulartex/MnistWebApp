@@ -4,16 +4,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Drawing;
+using System.IO;
 using System.Net.Mime;
+using System.Text;
 using Accord.Math;
 using NeuralNet;
+using WebApplication1.Properties;
 
 namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
         private const int arrSize = 28;
-        Net net = Init.InitNetwork(@"D:\jiriv\Documents\Visual Studio 2017\Projects\MnistWebApp\JsonTest\ver1.json");
+        private readonly Net net = Init.InitNetwork(Encoding.UTF8.GetString(Resource.ver1)); 
         // GET: Home
         public ActionResult Index()
         {

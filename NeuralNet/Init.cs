@@ -21,8 +21,7 @@ namespace NeuralNet
 
         public static Net InitNetwork (string data)
         {
-            string netData = new StreamReader(data).ReadToEnd();
-            Net net = JsonConvert.DeserializeObject<Net>(netData);
+            Net net = JsonConvert.DeserializeObject<Net>(data);
             net.Activations = new double[net.Sizes.Length][];
             for (int i = 0; i < net.Activations.Length; i++)
             {
