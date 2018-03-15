@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using System.Drawing;
-using System.IO;
-using System.Net.Mime;
 using System.Text;
 using Accord.Math;
 using NeuralNet;
@@ -26,6 +21,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult AjaxActionResult(string imageString)
         {
+            //try catch
             Bitmap resized = ((Bitmap)Init.InitBitmap(imageString)).New(arrSize, arrSize).Normalize();
             double[][] input = resized.ToArray(arrSize);
             double[] result = net.FeedForward(input.Reshape());

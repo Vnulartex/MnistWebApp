@@ -12,29 +12,26 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/bootstrap.min.css")"/>
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/style.css")"/>
+
 </head>
-<body onload="init()">
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-        </ul>
-    </nav>
-<div class="container">
-    @RenderBody()
+<body>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1>Canvas number clasifier</h1>
+        <p>Tincidunt integer eu augue augue nunc elit dolor,
+            luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit,
+            vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</p>
+    </div>
 </div>
+<main>
+    @RenderBody()
+</main>
+
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <script type="text/javascript" src=@Url.Content("~/Scripts/jquery-3.3.1.min.js")></script>
-    <script type="text/javascript" src=@Url.Content("~/Scripts/canvas.js")></script>>
+    <script type="text/javascript" src=@Url.Content("~/Scripts/ResponsiveCanvas.js")></script>
 </body>
 </html>

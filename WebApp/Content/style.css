@@ -1,18 +1,32 @@
 ﻿
 .pixel {
-    width: 15px;
-    height: 15px;
+    width: 18px; /*504/28*/
+    height: 18px;
     background-color: black;
     display: inline-block;
     margin: 0;
     padding: 0;
 }
-#pixels {
+.pixels {
     font-size: 0;
     display: inline-block;
-    border: 1px solid black;
+    width: 506px;
+    height: 506px;
 }
 
-body {
-    padding-top: 65px;
+
+#can,.pixels {
+    border: 1px solid black;
+    margin: 10px auto;
 }
+
+#can {
+    cursor: crosshair;
+}
+.btn {
+    border-radius: 0;
+    padding: 0.5em 1.5em;
+}
+
+
+

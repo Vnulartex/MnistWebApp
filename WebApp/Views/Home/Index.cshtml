@@ -2,8 +2,29 @@
 @{
     Layout = Url.Content("../Shared/_Layout.cshtml");
 }
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <h3>Draw your number here</h3>
+            <canvas id="can" style="" height="506" width="506"></canvas>
+        </div>
+        <div class="col text-center">
+            <h3>Preprocessed image</h3>
+            <div class="pixels"></div>
+        </div>
+    </div>
+    <div class="text-center">
+        <input type="button" class="btn btn-primary btn-lg" value="Submit" id="submit">
+        <input type="button" class="btn btn-secondary btn-lg" value="Clear" id="clr">
+    </div>
+    <div id="results"></div>
+    <h2>How does it work?</h2>
+    <p>
+        Placerat suscipit, orci nisl iaculis eros,
+        a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus
+        a risus iaculis scelerisque eu ac ante fusce non varius purus aenean nec magna felis fusce vestibulum
+        velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui o
+        rnare nisl, sollicitudin interdum turpis nunc eget.
+    </p>
+</div>
 
-<canvas id="can" width="500" height="500" style="border: 1px solid black;"></canvas>
-<input type="button" value="save" id="btn" size="30" onclick="save()">
-<input type="button" value="clear" id="clr" size="23" onclick="erase()">
-<div id="results"></div>

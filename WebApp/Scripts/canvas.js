@@ -57,7 +57,9 @@
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify({ "imageString" : image.toString() }),
             success: function (data) {
-                $("#results").html(data);
+                $(".pixels").html(data);
+                // $(".pixels").html($($.parseHTML(data)).filter("#pixels").text());
+                // $("#results").html(data);
             },
             error: function(jqxhr, status, exception) {
                 alert("Exception:", exception);
