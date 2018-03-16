@@ -42,7 +42,7 @@ function canvasFunc() {
 	            // $("#results").html(data);
 	        },
 	        error: function(jqxhr, status, exception) {
-	            alert("Exception:", exception);
+	            alert("There was an error.", exception);
 	        }
 	    });
 	}, false);

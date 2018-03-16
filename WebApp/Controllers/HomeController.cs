@@ -21,7 +21,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult AjaxActionResult(string imageString)
         {
-            //try catch
+            
             Bitmap resized = ((Bitmap)Init.InitBitmap(imageString)).New(arrSize, arrSize).Normalize();
             double[][] input = resized.ToArray(arrSize);
             double[] result = net.FeedForward(input.Reshape());
