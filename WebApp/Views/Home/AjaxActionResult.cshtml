@@ -3,7 +3,7 @@
     double[][] input = ViewBag.Input;
     double[] result = ViewBag.Result;
 }
-<table id="res" class="table table-bordered table-hover">
+<table id="res" class="table table-bordered">
     <thead>
         <tr>
             @for (int i = 0; i < result.Length; i++)
@@ -16,10 +16,17 @@
     </thead>
     <tbody>
         <tr>
-            @foreach (var t in result)
+            @foreach (double t in result)
             {
                 <td>
-                    @t.ToString("P2")
+                    @if (t == result.Max())
+                    {
+                        <strong>@t.ToString("P2")</strong>
+                    }
+                    else
+                    {
+                        @t.ToString("P2")
+                    }
                 </td>
             }
         </tr>

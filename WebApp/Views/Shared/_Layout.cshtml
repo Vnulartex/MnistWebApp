@@ -3,11 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
-    <title>Fixed top navbar example for Bootstrap</title>
+    <meta name="description" content="Web application for clasifying handwritten digits">
+    <meta name="author" content="Jiří Vlasák">
+    <title>Handwritten number clasifier</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/bootstrap.min.css")"/>
@@ -17,15 +15,16 @@
 <body>
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1>Canvas number clasifier</h1>
-        <p>Tincidunt integer eu augue augue nunc elit dolor,
-            luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit,
-            vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</p>
+        <h1>Handwritten number clasifier</h1>
+        <p>On this website you can draw a digit on the canvas and let a Neural network guess which digit you wrote.</p>
     </div>
 </div>
-<main>
+<main role="main" class="container">
     @RenderBody()
 </main>
+<footer>
+    <p class="text-center">Website made by Jiří Vlasák</p>
+</footer>
 
 
 
